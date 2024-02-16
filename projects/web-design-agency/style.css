@@ -10,6 +10,11 @@ body {
   flex: 1;
 }
 
+.tile-image {
+  height: 200px;
+  width: 300px;
+}
+
 h1 {
   font-size: 5rem;
 }
@@ -19,7 +24,7 @@ footer {
   color: midnightblue;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 680px) {
   h1 {
     font-size: 3.5rem;
     text-align: center;
@@ -29,7 +34,16 @@ footer {
     width: 100px;
   }
 
+  .tile-image {
+    height: 200px;
+    width: 100%;
+  }
+
   .card {
     flex: 1;
   }
+}
+
+@media (min-width: 680px) {
+  
 }
