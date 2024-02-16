@@ -19,3 +19,17 @@ footer {
   color: midnightblue;
 }
 
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  .card {
+    flex: 1;
+  }
+}
