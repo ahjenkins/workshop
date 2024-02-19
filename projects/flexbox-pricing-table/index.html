@@ -14,19 +14,24 @@
       }
 
       /* Hint: What can you do with a media query and flexbox? */
-      @media (max-width: 1250px) {
+      @media (min-width: 1250px) {
         .pricing-container {
           display: flex;
           justify-content: center;
           gap: 20px;
         }
+
         .pricing-plan {
           background-color: #f7f7f7;
-          width: 275px;
+          min-width: 275px;
           text-align: center;
           padding: 20px;
         }
       }
+
+      @media (max-width: 1250px) {
+      }
+
     </style>
   </head>
 
