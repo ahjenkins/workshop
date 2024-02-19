@@ -13,6 +13,14 @@
         font-family: "Sono", sans-serif;
       }
 
+      .plan-title, .plan-price {
+          font-weight: 700;
+        }
+
+      .plan-price {
+        font-size: 35px;
+      }
+
       /* Hint: What can you do with a media query and flexbox? */
       @media (min-width: 1250px) {
         .pricing-container {
@@ -28,21 +36,12 @@
           flex-grow: 1;
           text-align: center;
           padding: 20px;
-          
-        }
-
-        .plan-title, .plan-price {
-          font-weight: 700;
-        }
-
-        .plan-price {
-          font-size: 35px;
         }
 
         .plan-features  {
           list-style-type: none;
           display: block;
-          
+          text-align: center;
         }
 
         .plan-button {
@@ -56,6 +55,20 @@
       }
 
       @media (max-width: 1250px) {
+        .pricing-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 15px;
+        }
+
+        .pricing-plan {
+          background-color: #f7f7f7;
+          flex-basis: 0;
+          text-align: center;
+          padding: 20px;
+        }
+
       }
 
     </style>
