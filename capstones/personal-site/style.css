@@ -11,7 +11,7 @@
     border: 1px solid black;
 }
 
-/* home */
+/* HOME */
 .btn-primary {
     background: #F07B3F;
     border-color: #F07B3F;
@@ -31,4 +31,28 @@
 .btn-outline-primary:hover {
     background: #F07B3F;
     border-color: #F07B3F;
+}
+
+/* PROJECTS */
+.card-cover {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card > div > h3 > a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+#card-cuse {
+    background-image: url("https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=1980&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+#card-smart {
+    background-image: url("https://images.unsplash.com/photo-1552560880-2482cef14240?q=80&w=1943&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+#card-college {
+    background-image: url("https://images.unsplash.com/photo-1623874514711-0f321325f318?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
