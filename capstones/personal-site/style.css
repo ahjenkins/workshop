@@ -10,3 +10,14 @@
     color: black;
     border: 1px solid black;
 }
+
+/* home */
+.btn-primary {
+    background: #F07B3F;
+    border-color: #F07B3F;
+}
+
+.btn-primary:hover {
+    background: #F07B3F;
+    border-color: #F07B3F;
+}
