@@ -1,0 +1,12 @@
+/* NAVBAR */
+
+/* navbar tabs */
+.nav-pills .nav-link {
+    color: black;
+}
+
+.nav-pills .nav-link.active {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
