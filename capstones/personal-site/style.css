@@ -21,3 +21,14 @@
     background: #F07B3F;
     border-color: #F07B3F;
 }
+
+.btn-outline-primary {
+    background: #FFF;
+    color: #F07B3F;
+    border-color: #F07B3F;
+}
+
+.btn-outline-primary:hover {
+    background: #F07B3F;
+    border-color: #F07B3F;
+}
