@@ -25,6 +25,12 @@
     border-color: #2D4059;   
 }
 
+.btn.btn-primary:active {
+    background: #2D4059;
+    color: white;
+    border-color: #2D4059;   
+}
+
 .btn-outline-primary {
     background: #FFF;
     color: #F07B3F;
@@ -32,6 +38,11 @@
 }
 
 .btn-outline-primary:hover {
+    background: #F07B3F;
+    border-color: #F07B3F;
+}
+
+#view-resume:active {
     background: #F07B3F;
     border-color: #F07B3F;
 }
