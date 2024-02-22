@@ -11,6 +11,14 @@
     border: 1px solid black;
 }
 
+/* .nav-pills .nav-link:hover {
+    text-decoration: underline;
+} */
+
+#navbar > .container {
+    background-color: #FFF;
+}
+
 /* HOME */
 .btn-primary {
     background: #F07B3F;
