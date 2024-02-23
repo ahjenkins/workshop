@@ -93,3 +93,11 @@ textarea {
     resize: vertical;
     max-height: 350px;
 }
+
+/* ABOUT */
+#about > .container {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    margin-top: 75px;
+    width: 100%;
+}
