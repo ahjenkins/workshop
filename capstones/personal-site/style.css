@@ -97,7 +97,7 @@ textarea {
 /* ABOUT */
 #about > .container {
     display: grid;
-    grid-template-columns: 1fr 0.75fr;
+    grid-template-columns: .7fr 1.5fr;
     margin-top: 75px;
     width: 100%;
 }
