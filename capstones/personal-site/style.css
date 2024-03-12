@@ -101,3 +101,32 @@ textarea {
     margin-top: 75px;
     width: 100%;
 }
+
+/* mobile phones media query */
+@media (max-width: 991px) {
+    /* home */
+    .headshot {    
+        margin: 0 auto;
+        display: block;
+    }
+
+    #img-headshot {
+        width: auto;
+    }
+
+    .home-content > h1, .home-content > p {
+        text-align: center;
+    }
+
+    .home-content > h1 {
+        font-size: 2em;
+    }
+
+    .home-content > p {
+        font-size: 1.2em;        
+    }
+
+    .home-content > div > a > button {
+        display: none;
+    }
+}
