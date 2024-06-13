@@ -6,3 +6,8 @@ $("h1").addClass("big-title margin-50");
 // $("button").text("Don't click me");
 $("button").html("<em>Hey</em>")
 
+// manipulate attributes
+// first argument gets the name of the attribute, second attribute (optional) sets the attribute
+console.log($("img").attr("src"));
+$("a").attr("href", "https://www.yahoo.com");
+
