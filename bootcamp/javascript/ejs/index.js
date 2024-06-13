@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
         "weekday": dayText,
         "message": message
     });
-    console.log(days[day]);
+    // console.log(days[day]);
 });
 
 app.listen(port, () => {
