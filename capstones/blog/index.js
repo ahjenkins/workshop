@@ -6,6 +6,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
+let today = new Date();
+let formattedDate = today.toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
+console.log(formattedDate);
+
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -13,7 +17,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/create", (req, res) => {
-    res.render("post-create.ejs");
+    const data = {
+        date: formattedDate
+    };
+    res.render("post-create.ejs", data);
 });
 
 app.get("/update", (req, res) => {
