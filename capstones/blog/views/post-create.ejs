@@ -2,7 +2,7 @@
 <h1>Create a post</h1>
 <p><%= date %></p>
 
-<form action="/submit" method="POST" id="create-article">
+<form action="/submit" method="POST" id="create-post">
     <label for="title">Title</label></br>
     <input type="text" name="title" placeholder="Title your post"></br>
     <label for="author">Author</label></br>
@@ -11,6 +11,6 @@
     <textarea name="content" rows="10" cols="30">Type your content here..</textarea>
 </form>
 
-<button type="submit" form="create-article" value="Submit">Post</button>
+<button type="submit" form="create-post" value="Submit">Post</button>
 
 <%- include ("partials/footer.ejs") %>
