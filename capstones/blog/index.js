@@ -13,8 +13,6 @@ function dateToday () {
     return formattedDate;
 };
 
-let articleTitle1 = "Fitness Fundamentals: Essential Exercises for Every Level";
-
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
