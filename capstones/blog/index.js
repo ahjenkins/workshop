@@ -38,6 +38,7 @@ app.get("/update", (req, res) => {
 
 app.get("/view", (req, res) => {
     // view a post
+    // generate a new .ejs file after a post is created?
     res.send("view");
     // res.render("view-post.ejs");
 });
