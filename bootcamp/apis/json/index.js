@@ -51,16 +51,16 @@ app.post("/recipe", (req, res) => {
     proteinPrep = beef.ingredients.protein.preparation;
     protein = proteinName + ", " + proteinPrep;
     salsa = beef.ingredients.salsa.name;
-    console.log(protein);
-    
+    console.log("protein:", protein);
+    toppings = beef.ingredients.toppings;
   } else if (choice == "fish") {
     recipeName = fish.name;
     proteinName = fish.ingredients.protein.name;
     proteinPrep = fish.ingredients.protein.preparation;
     protein = proteinName + ", " + proteinPrep;
     salsa = fish.ingredients.salsa.name;
-    console.log(protein);
-    
+    console.log("protein:", protein);
+    toppings = fish.ingredients.toppings;
   }
 
   res.render("index.ejs", {
