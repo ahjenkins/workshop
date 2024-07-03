@@ -61,8 +61,8 @@ app.post("/put-secret", async (req, res) => {
     let secret = req.body.secret;
     let score = req.body.score;
     let body = {
-      secret: req.body.secret,
-      score: req.body.score
+      secret: secret,
+      score: score
     }
     const result = await axios.put(API_URL + "/secrets/" + searchId, body, config);
     console.log(result);
