@@ -39,15 +39,11 @@ app.post("/post-secret", async (req, res) => {
   try {
     let secret = req.body.secret;
     let score = req.body.score;
-    // console.log("secret:", secret);
-    // console.log("score:", score);
     let body = {
       secret: secret,
       score: score
     }
-    // console.log("body: ", body);
-    const result = await axios.post(API_URL + "/secrets", body, config);
-    console.log(result);
+    const result = await axios.post(API_URL + "/secrets", body, config);    
     res.render("index.ejs", { content: JSON.stringify(result.data) });
   } catch (error) {
     res.render("index.ejs", { content: JSON.stringify(error.response.data) });
@@ -65,7 +61,6 @@ app.post("/put-secret", async (req, res) => {
       score: score
     }
     const result = await axios.put(API_URL + "/secrets/" + searchId, body, config);
-    console.log(result);
     res.render("index.ejs", { content: JSON.stringify(result.data) });
   } catch (error) {
     res.render("index.ejs", { content: JSON.stringify(error.response.data) });
@@ -83,7 +78,6 @@ app.post("/patch-secret", async (req, res) => {
       score: score
     }
     const result = await axios.patch(API_URL + "/secrets/" + searchId, body, config);
-    console.log(result);
     res.render("index.ejs", { content: JSON.stringify(result.data) });
   } catch (error) {
     res.render("index.ejs", { content: JSON.stringify(error.response.data) });
@@ -95,7 +89,6 @@ app.post("/delete-secret", async (req, res) => {
   // TODO 5: Use axios to DELETE the item with searchId from the secrets api servers.
   try {
     const result = await axios.delete(API_URL + "/secrets/" + searchId, config);
-    console.log(result);
     res.render("index.ejs", { content: JSON.stringify(result.data) });
   } catch (error) {
     res.render("index.ejs", { content: JSON.stringify(error.response.data) });
