@@ -1,7 +1,25 @@
 // HINTS:
 // 1. Import express and axios
-
 // 2. Create an express app and set the port number.
+
+import express from "express";
+import axios from "axios";
+
+
+const app = express();
+const port = 3000;
+
+app.get("/", (req, res) => {
+    res.send("hello world");
+    // res.render("index.ejs");
+})
+
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+})
+
+
 
 // 3. Use the public folder for static files.
 
