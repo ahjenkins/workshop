@@ -21,6 +21,8 @@ app.post("/create", (req, res) => {
         author: author,
         article: article
     }
+    articles.push(post);
+    console.log(articles);
     res.render("index.ejs", post);
 })
 
