@@ -19,7 +19,8 @@ app.post("/create", (req, res) => {
     const post = {
         title: title,
         author: author,
-        article: article
+        article: article,
+        articles
     }
     articles.push(post);
     console.log(articles);
