@@ -18,5 +18,12 @@
         <textarea name="article" rows="20" cols="75"></textarea><br />
         <button type="submit">Create</button>
     </form>
+    <h2>View post</h2>
+    <% if (locals.title) { %>
+    <div class="blog-post">
+        <h4><%= title %></h4>
+        <p>By <%= author %></p>
+    </div>
+    <% } %>
 </body>
 </html>
