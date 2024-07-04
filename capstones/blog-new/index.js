@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
 })
 
 app.post("/create", (req, res) => {
+    // console.log(req.body);
+    const title = req.body.title;
+    const author = req.body.author;
+    const article = req.body.article;
     res.render("index.ejs");
 })
 
