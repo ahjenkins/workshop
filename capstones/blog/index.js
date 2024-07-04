@@ -19,7 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
     const data = {
         title: articleTitles,
-        imgThumbnail: imgThumbnails
+        author: authors,
+        content: contents
+        // imgThumbnail: imgThumbnails
     };
     res.render(__dirname + "/views/index.ejs", data);
 });
@@ -31,14 +33,15 @@ app.get("/create", (req, res) => {
     res.render("create.ejs", data);
 });
 
-app.get("/update", (req, res) => {
-    res.send("update");
-    // res.render("update.ejs");
+app.get("/edit", (req, res) => {
+    res.send("edit");
+    // res.render("edit.ejs");
 });
 
 app.get("/view", (req, res) => {
     // view a post
     // generate a new .ejs file after a post is created?
+    console.log(req.body);
     res.send("view");
     // res.render("view-post.ejs");
 });
@@ -47,13 +50,18 @@ app.post("/submit", (req, res) => {
     let title = req.body.title;
     let author = req.body.author;
     let content = req.body.content;
-    // articleTitles.push(title);
+    articleTitles.push(title);
+    authors.push(author);
+    contents.push(content);
 
     const postData = {
+        id: posts.length + 1,
         title: title,
         author: author,
         content: content,
     };
+    
+    posts.push(postData);
     res.render("read.ejs", postData);
 })
 
@@ -61,16 +69,10 @@ app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
 
-const articleTitles = [
-    // "Fitness Fundamentals: Essential Exercises for Every Level",
-    // "Achieve Your Fitness Goals: A Step-by-Step Guide",
-    // "Boost Your Energy: Fitness Tips for a Vibrant Lifestyle",
-    // "Nutrition and Fitness: The Perfect Pair for Optimal Health",
-    // "Fitness on the Go: Quick Routines for Busy Schedules",
-    // "The Power of Consistency: Daily Habits for Fitness Success",
-    "Stay Motivated: Tips to Keep Your Fitness Journey on Track"
-];
+const articleTitles = []
+const authors = []
+const contents = []
 
-const imgThumbnails = [
-    "images/fitness1.jpg"
-]
+// const imgThumbnails = [
+//     "images/fitness1.jpg"
+// ]

@@ -1,7 +1,16 @@
 <%- include ("partials/header.ejs") %>
 
-<%- include("partials/thumbnail.ejs") %>
-<%- include("partials/thumbnail.ejs") %>
-<%- include("partials/thumbnail.ejs") %>
+<% if (locals.articleTitles.length > 0) { %>
+  <ul>
+    <% articleTitles.forEach(post => { %>
+      <li>
+        <h2><%= title %></h2>
+        <p>By <%= author %></p>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No blog posts yet.</p>
+<% } %>
 
 <%- include ("partials/footer.ejs") %>
