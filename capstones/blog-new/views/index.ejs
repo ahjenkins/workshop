@@ -20,10 +20,13 @@
     </form>
     <h2>View post</h2>
     <% if (locals.title) { %>
-    <div class="blog-post">
-        <h4><%= title %></h4>
-        <p>By <%= author %></p>
-    </div>
+    <% articles.forEach(function(article) { %>
+        <div class="blog-post">
+            <h4><%= article.title %></h4>
+            <p>By <%= article.author %></p>
+        </div>
+    <% }); %>
+        
     <% } %>
 </body>
 </html>
