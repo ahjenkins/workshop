@@ -16,9 +16,16 @@ app.post("/create", (req, res) => {
     const title = req.body.title;
     const author = req.body.author;
     const article = req.body.article;
-    res.render("index.ejs");
+    const post = {
+        title: title,
+        author: author,
+        article: article
+    }
+    res.render("index.ejs", post);
 })
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 })
+
+const articles = [];
