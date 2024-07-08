@@ -8,6 +8,21 @@
 </head>
 <body>
     <h1>My Blog</h1>
+    <h2>View posts</h2>
+    <% if (locals.articles) { %>
+    <% articles.forEach(function(article) { %>
+        <div class="blog-post">
+            <h4><%= article.title %></h4>
+            <p>By <%= article.author %></p>
+            <p>By <%= article.article %></p>
+        </div>
+        <div class="btn-modify">
+            <button>Edit</button>
+        </div>
+    <% }); %>
+    <% } else { %>
+        <p>No articles to show.</p>
+    <% } %>
     <h2>Create a post</h2>
     <form action="/create" method="post">
         <label for="title">Title</label><br />
@@ -18,15 +33,5 @@
         <textarea name="article" rows="20" cols="75"></textarea><br />
         <button type="submit">Create</button>
     </form>
-    <h2>View post</h2>
-    <% if (locals.title) { %>
-    <% articles.forEach(function(article) { %>
-        <div class="blog-post">
-            <h4><%= article.title %></h4>
-            <p>By <%= article.author %></p>
-        </div>
-    <% }); %>
-        
-    <% } %>
 </body>
 </html>
