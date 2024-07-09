@@ -60,6 +60,18 @@ app.post("/update/:id", (req, res) => {
     }
 })
 
+app.post("/delete/:id", (req, res) => {
+    const articleId = parseInt(req.params.id, 10);
+    const postIndex = articles.findIndex(a => a.id === articleId);
+
+    if (postIndex !== -1) {
+        articles.splice(postIndex, 1);
+        res.redirect("/");
+    } else {
+        res.status(404).send('Article not found');
+    }
+})
+
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 })
