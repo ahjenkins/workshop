@@ -14,10 +14,10 @@
         <div class="blog-post">
             <h4><%= article.title %></h4>
             <p>By <%= article.author %></p>
-            <p>By <%= article.article %></p>
+            <p><%= article.article %></p>
         </div>
         <div class="btn-modify">
-            <button>Edit</button>
+            <a href="/edit/<%= article.id %>"><button type="submit">Edit</button></a>
         </div>
     <% }); %>
     <% } else { %>
