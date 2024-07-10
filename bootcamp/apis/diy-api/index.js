@@ -51,6 +51,18 @@ app.put("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   // console.log(id);
   console.log(jokes[id - 1]);
+  
+  // console.log(req.body);
+  const text = req.body.text;
+  const type = req.body.type;
+  
+  const updatedJoke = {
+    id,
+    jokeText: text,
+    jokeType: type
+  }
+
+  console.log(updatedJoke);
 })
 
 
