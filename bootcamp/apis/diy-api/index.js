@@ -69,7 +69,7 @@ app.put("/jokes/:id", (req, res) => {
   // console.log(updatedJoke);
   // jokes.splice(idIndex, 1, updatedJoke);
   jokes[idIndex] = updatedJoke;
-  console.log(jokes[idIndex]);
+  res.json(updatedJoke);
 })
 
 
