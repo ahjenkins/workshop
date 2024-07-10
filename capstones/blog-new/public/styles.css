@@ -67,6 +67,12 @@ textarea {
     row-gap: 15px;
 }
 
+.blog-post {
+    border: 1px black solid;
+    border-radius: 4px;
+    padding: 20px;
+}
+
 #blog .blog-post .btn-modify button {
     height: 30px;
     border: none;
@@ -76,12 +82,11 @@ textarea {
 
 #edit-button {
     background-color: lightgray;
-    width: 100px;
+    width: 90px;
 }
 #edit-button:hover {
     background-color: lightblue;
     border: 1px lightblue solid;
-    width: 100px;
     cursor: pointer;
 }
 
