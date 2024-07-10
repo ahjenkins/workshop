@@ -1,4 +1,4 @@
-import express from "express";
+import express, { query } from "express";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -106,7 +106,17 @@ app.delete("/jokes/:id", (req, res) => {
 
 //8. DELETE All jokes
 app.delete("/all", (req, res) => {
-  
+  const queryKey = req.query.key;
+  if (queryKey === masterKey) {
+    console.log("authenticated");
+    jokes = [];
+    res.sendStatus(200);
+  } else {
+    console.log("not authenticated");
+    res
+      .sendStatus(404)
+      .json({ error: "You are not authenticated to perform this action"});
+  }
 })
 
 app.listen(port, () => {
