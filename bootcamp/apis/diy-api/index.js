@@ -54,12 +54,6 @@ app.put("/jokes/:id", (req, res) => {
   console.log("idIndex:", idIndex);
   
   console.log(jokes[idIndex]);
-  // const fake = req.params.id;
-  // console.log(jokes[99 + 1]);
-
-  // console.log(jokes[id - 1]);
-  // const idIndex = jokes[id - 1];
-  // console.log("id index:", idIndex);
   
   // console.log(req.body);
   const text = req.body.text;
