@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #fdffff;
+    background-color: #eaeaea;
 }
 
 .navbar {
@@ -65,7 +65,7 @@ textarea {
 
 #blog .blog-post .btn-modify button {
     height: 30px;
-    border: 1px lightgray solid;
+    border: none;
     border-radius: 3px;
     font-weight: 600;
 }
@@ -76,6 +76,7 @@ textarea {
 }
 #edit-button:hover {
     background-color: lightblue;
+    border: 1px lightblue solid;
     width: 100px;
     cursor: pointer;
 }
@@ -87,6 +88,7 @@ textarea {
 
 #delete-button:hover {
     background-color: lightcoral;
+    border: 1px lightcoral solid;
     cursor: pointer;
 }
 
