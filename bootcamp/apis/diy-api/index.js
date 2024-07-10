@@ -35,17 +35,12 @@ app.post("/jokes", (req, res) => {
   const id = parseInt(jokes.length) + 1;
   const text = req.body.text;
   const type = req.body.type;
-  // console.log("id:", id);
-  // console.log("text:", text);
-  // console.log("type:", type);
 
   const newJoke = {
     id,
     jokeText: text,
     jokeType: type
   };
-
-  // console.log(newJoke);
 
   jokes.push(newJoke);
   res.json(newJoke);
