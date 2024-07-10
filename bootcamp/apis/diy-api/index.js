@@ -74,6 +74,15 @@ app.put("/jokes/:id", (req, res) => {
 
 
 //6. PATCH a joke
+app.patch("/jokes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  console.log(id);
+  const idIndex = jokes.findIndex((joke) => joke.id === id);
+  console.log("idIndex:", idIndex);
+  console.log(jokes[idIndex]);
+  console.log(req.body);
+
+})
 
 //7. DELETE Specific joke
 
