@@ -80,7 +80,7 @@ app.patch("/jokes/:id", (req, res) => {
   console.log(jokes[idIndex]);
 
   // console.log("before:", jokes[idIndex]);
-  jokes[idIndex].jokeText = req.body.Text;
+  jokes[idIndex].jokeText = req.body.text;
   jokes[idIndex].jokeType = req.body.type;
   // console.log("after:", jokes[idIndex]);
 })
