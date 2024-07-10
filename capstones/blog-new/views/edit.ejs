@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h2>Edit post</h2>
-    <div class="form">
-        <form action="/update/<%= article.id %>" method="post">
-            <label for="title">Title</label><br />
-            <input type="text" name="title" value="<%= article.title %>"><br />
-            <label for="author">Author</label><br />
-            <input type="text" name="author" value="<%= article.author %>" required><br />
-            <label for="article">Write your article below</label><br />
-            <textarea name="article" rows="20" cols="68"><%= article.article %></textarea><br />
-            <button type="submit" id="save-button">Save</button>
-        </form>
+    <div class="content">
+        <h2>Edit post</h2>
+        <div class="form">
+            <form action="/update/<%= article.id %>" method="post">
+                <label for="title">Title</label><br />
+                <input type="text" name="title" value="<%= article.title %>"><br />
+                <label for="author">Author</label><br />
+                <input type="text" name="author" value="<%= article.author %>" required><br />
+                <label for="article">Write your article below</label><br />
+                <textarea name="article" rows="20" cols="68"><%= article.article %></textarea><br />
+                <button type="submit" id="save-button">Save</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
