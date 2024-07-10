@@ -79,10 +79,15 @@ app.patch("/jokes/:id", (req, res) => {
   const idIndex = jokes.findIndex((joke) => joke.id === id);
   console.log(jokes[idIndex]);
 
-  // console.log("before:", jokes[idIndex]);
-  jokes[idIndex].jokeText = req.body.text;
-  jokes[idIndex].jokeType = req.body.type;
-  // console.log("after:", jokes[idIndex]);
+  console.log("before:", jokes[idIndex]);
+
+  const updatedJoke = {
+    id,
+    jokeText: req.body.text || jokes[idIndex].jokeText,
+    jokeType: req.body.type || jokes[idIndex].jokeType
+  }
+  console.log("after:", updatedJoke);
+  res.json(updatedJoke);
 })
 
 //7. DELETE Specific joke
