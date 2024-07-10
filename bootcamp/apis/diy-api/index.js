@@ -65,8 +65,8 @@ app.put("/jokes/:id", (req, res) => {
     jokeType: type
   }
 
-  // console.log(updatedJoke);
-  // jokes.splice(id, )
+  console.log(updatedJoke);
+  jokes.splice(idIndex, 1, updatedJoke);
 })
 
 
