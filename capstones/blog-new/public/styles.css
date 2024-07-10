@@ -25,7 +25,7 @@ body {
 }
 
 /* create form */
-#create {
+.form {
     border: 3px black solid;
     border-radius: 3px;
     padding: 20px;
