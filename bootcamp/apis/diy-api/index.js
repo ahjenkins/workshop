@@ -47,6 +47,12 @@ app.post("/jokes", (req, res) => {
 })
 
 //5. PUT a joke
+app.put("/jokes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  // console.log(id);
+  console.log(jokes[id - 1]);
+})
+
 
 //6. PATCH a joke
 
