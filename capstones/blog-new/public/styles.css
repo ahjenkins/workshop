@@ -96,3 +96,11 @@ textarea {
     cursor: pointer;
 }
 
+/* footer */
+footer {
+    /* background-color: white; */
+}
+
+footer p {
+    padding: 10px 20px;
+}
