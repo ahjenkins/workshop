@@ -77,16 +77,14 @@ app.put("/jokes/:id", (req, res) => {
 app.patch("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const idIndex = jokes.findIndex((joke) => joke.id === id);
-  console.log(jokes[idIndex]);
 
-  console.log("before:", jokes[idIndex]);
-
+  // console.log("before:", jokes[idIndex]);
   const updatedJoke = {
     id,
     jokeText: req.body.text || jokes[idIndex].jokeText,
     jokeType: req.body.type || jokes[idIndex].jokeType
   }
-  console.log("after:", updatedJoke);
+  // console.log("after:", updatedJoke);
   res.json(updatedJoke);
 })
 
