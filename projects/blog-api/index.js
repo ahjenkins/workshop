@@ -45,18 +45,21 @@ app.get("/posts", (req, res) => {
   try {
     res.json(posts);
   } catch {
-    res.sendStatus(404);
-    res.json({ error: "No posts found"});
+    res
+    .sendStatus(404)
+    .json({ error: "No posts found"});
   }
 })
 
 //CHALLENGE 2: GET a specific post by id
 app.get("/posts/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  console.log(id);
   const idIndex = posts.findIndex(post => post.id === id);
-  console.log(posts[idIndex]);
-  res.json(posts[idIndex]);
+  if (id > -1 && id < posts.length + 1) {
+    res.json(posts[idIndex]);
+  } else {
+    res.sendStatus(404)
+  }
 })
 
 //CHALLENGE 3: POST a new post
