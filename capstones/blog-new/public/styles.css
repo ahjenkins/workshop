@@ -41,7 +41,7 @@ textarea {
     font-size: 0.95rem;
 }
 
-#create-button {
+#create-button, #save-button{
     width: 645px;
     height: 40px;
     font-weight: 600;
@@ -84,3 +84,4 @@ textarea {
 #delete-button:hover {
     background-color: red;
 }
+
