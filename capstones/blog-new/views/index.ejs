@@ -9,36 +9,40 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-item">Blog</a>
-            <a href="#" class="nav-item">Create</a>
+            <a href="#blog" class="nav-item">Blog</a>
+            <a href="#create" class="nav-item">Create</a>
         </div>
     </nav>
-    <% if (locals.articles) { %>
-    <% articles.forEach(function(article) { %>
-        <div class="blog-post">
-            <h4><%= article.title %></h4>
-            <p>By <%= article.author %></p>
-            <p><%= article.article %></p>
-        </div>
-        <div class="btn-modify">
-            <a href="/edit/<%= article.id %>"><button type="submit">Edit</button></a>
-            <form action="/delete/<%= article.id %>" method="POST" style="display:inline;">
-                <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
-            </form>
-        </div>
-    <% }); %>
-    <% } else { %>
-        <p>No articles to show.</p>
-    <% } %>
-    <h2>Create a post</h2>
-    <form action="/create" method="post">
-        <label for="title">Title</label><br />
-        <input type="text" name="title" required><br />
-        <label for="author">Author</label><br />
-        <input type="text" name="author" required><br />
-        <label for="article">Write your article below</label><br />
-        <textarea name="article" rows="20" cols="75"></textarea><br />
-        <button type="submit">Create</button>
-    </form>
+    <div id="blog">
+        <% if (locals.articles) { %>
+            <% articles.forEach(function(article) { %>
+                <div class="blog-post">
+                    <h4><%= article.title %></h4>
+                    <p>By <%= article.author %></p>
+                    <p><%= article.article %></p>
+                </div>
+                <div class="btn-modify">
+                    <a href="/edit/<%= article.id %>"><button type="submit">Edit</button></a>
+                    <form action="/delete/<%= article.id %>" method="POST" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+                    </form>
+                </div>
+            <% }); %>
+            <% } else { %>
+                <p>No articles to show.</p>
+            <% } %>
+    </div>
+    <div id="create">
+        <h2>Create a post</h2>
+        <form action="/create" method="post">
+            <label for="title">Title</label><br />
+            <input type="text" name="title" required><br />
+            <label for="author">Author</label><br />
+            <input type="text" name="author" required><br />
+            <label for="article">Write your article below</label><br />
+            <textarea name="article" rows="20" cols="75"></textarea><br />
+            <button type="submit">Create</button>
+        </form>
+    </div>
 </body>
 </html>
