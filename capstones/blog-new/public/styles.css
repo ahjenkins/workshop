@@ -55,10 +55,28 @@ textarea {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* grid-template-rows: 50% 50% 50%; */
     column-gap: 10px;
     row-gap: 15px;
 }
-.grid-item {
-    /* grid-row-start: 1; */
+
+#blog .blog-post .btn-modify button {
+    height: 30px;
+    background-color: lightgray;
+    border: 1px lightgray solid;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+#edit-button {
+    /* background-color: blue; */
+    width: 100px;
+}
+
+#delete-button {
+    background-color: lightcoral;
+    width: 35px;
+}
+
+#delete-button:hover {
+    background-color: red;
 }
