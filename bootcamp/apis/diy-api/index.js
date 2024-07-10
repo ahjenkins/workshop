@@ -45,9 +45,10 @@ app.post("/jokes", (req, res) => {
     jokeType: type
   };
 
-  console.log(newJoke);
+  // console.log(newJoke);
 
-  // jokes.push();
+  jokes.push(newJoke);
+  res.json(newJoke);
 })
 
 //5. PUT a joke
