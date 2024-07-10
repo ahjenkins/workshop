@@ -11,7 +11,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/random", (req, res) => {
   let randomNum = Math.floor(Math.random() * jokes.length);
   const randomJoke = jokes[randomNum];
-  console.log(randomJoke);
   res.json(randomJoke);
 })
 
@@ -20,7 +19,6 @@ app.get("/jokes/:id", (req, res) => {
   let id = parseInt(req.params.id);
   // const joke = jokes[id - 1];
   const joke = jokes.find((joke) => joke.id === id);
-  console.log(joke);
   res.json(joke);
 })
 
