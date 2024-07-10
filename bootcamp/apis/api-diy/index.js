@@ -11,10 +11,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/random", async (req, res) => {
   // console.log(jokes);
   let randomNum = Math.floor(Math.random() * jokes.length);
-  console.log("num", randomNum);
   const randomJoke = jokes[randomNum];
   console.log(randomJoke);
-  res.send("hello");
+  res.json(randomJoke);
 })
 
 //2. GET a specific joke
