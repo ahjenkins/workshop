@@ -115,7 +115,7 @@ app.delete("/all", (req, res) => {
     console.log("not authenticated");
     res
       .sendStatus(404)
-      .json({ error: "You are not authenticated to perform this action"});
+      .json({ error: "You are not authorized to perform this action"});
   }
 })
 
