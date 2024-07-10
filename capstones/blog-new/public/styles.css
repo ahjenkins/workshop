@@ -52,3 +52,13 @@ textarea {
 }
 
 /* blog post */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: 50% 50% 50%; */
+    column-gap: 10px;
+    row-gap: 15px;
+}
+.grid-item {
+    /* grid-row-start: 1; */
+}
