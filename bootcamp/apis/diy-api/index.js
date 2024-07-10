@@ -76,16 +76,13 @@ app.put("/jokes/:id", (req, res) => {
 //6. PATCH a joke
 app.patch("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  console.log(id);
   const idIndex = jokes.findIndex((joke) => joke.id === id);
-  // console.log("idIndex:", idIndex);
   console.log(jokes[idIndex]);
-  console.log("before:", jokes[idIndex].jokeType);
-  console.log(req.body);
+
+  // console.log("before:", jokes[idIndex]);
   jokes[idIndex].jokeText = req.body.Text;
   jokes[idIndex].jokeType = req.body.type;
-  console.log("after:", jokes[idIndex]);
-
+  // console.log("after:", jokes[idIndex]);
 })
 
 //7. DELETE Specific joke
