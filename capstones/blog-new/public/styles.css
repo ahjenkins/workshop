@@ -65,23 +65,28 @@ textarea {
 
 #blog .blog-post .btn-modify button {
     height: 30px;
-    background-color: lightgray;
     border: 1px lightgray solid;
     border-radius: 3px;
     font-weight: 600;
 }
 
 #edit-button {
-    /* background-color: blue; */
+    background-color: lightgray;
     width: 100px;
+}
+#edit-button:hover {
+    background-color: lightblue;
+    width: 100px;
+    cursor: pointer;
 }
 
 #delete-button {
-    background-color: lightcoral;
+    background-color: lightgray;
     width: 35px;
 }
 
 #delete-button:hover {
-    background-color: red;
+    background-color: lightcoral;
+    cursor: pointer;
 }
 
