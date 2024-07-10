@@ -49,8 +49,17 @@ app.post("/jokes", (req, res) => {
 //5. PUT a joke
 app.put("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  // console.log(id);
-  console.log(jokes[id - 1]);
+  const idIndex = id - 1;
+  console.log(id);
+  console.log("idIndex:", idIndex);
+  
+  console.log(jokes[idIndex]);
+  // const fake = req.params.id;
+  // console.log(jokes[99 + 1]);
+
+  // console.log(jokes[id - 1]);
+  // const idIndex = jokes[id - 1];
+  // console.log("id index:", idIndex);
   
   // console.log(req.body);
   const text = req.body.text;
@@ -62,7 +71,8 @@ app.put("/jokes/:id", (req, res) => {
     jokeType: type
   }
 
-  console.log(updatedJoke);
+  // console.log(updatedJoke);
+  // jokes.splice(id, )
 })
 
 
