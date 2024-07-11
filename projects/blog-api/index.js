@@ -91,7 +91,7 @@ app.patch("/posts/:id", (req, res) => {
   // console.log(posts[idIndex]);
 
   const originalPost = posts[idIndex];
-  console.log("original:", originalPost);
+  // console.log("original:", originalPost);
   
   // change made
   console.log(req.body);
@@ -104,7 +104,11 @@ app.patch("/posts/:id", (req, res) => {
     date: originalPost.date
   }
 
-  console.log("updated:", updatedPost);
+  // console.log("updated:", updatedPost);
+  posts.splice(idIndex, 1, updatedPost);
+  console.log("posts:", posts);
+
+  res.json(updatedPost);
 })
 
 //CHALLENGE 5: DELETE a specific post by providing the post id.
