@@ -121,11 +121,11 @@ app.delete("/posts/:id", (req, res) => {
   // console.log(posts[idIndex]);
   if (idIndex > -1) {
     posts.splice(idIndex, 1);
-    console.log(posts);
+    // console.log(posts);
+    res.json(posts)
   } else {
     res.sendStatus(404);
   }
-  
 })
 
 app.listen(port, () => {
