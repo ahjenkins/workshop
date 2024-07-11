@@ -114,7 +114,18 @@ app.patch("/posts/:id", (req, res) => {
 
 //CHALLENGE 5: DELETE a specific post by providing the post id.
 app.delete("/posts/:id", (req, res) => {
-  console.log("test");
+  // console.log("test");
+  const id = parseInt(req.params.id);
+  const idIndex = posts.findIndex(post => post.id === id);
+  // console.log(id);
+  // console.log(posts[idIndex]);
+  if (idIndex > -1) {
+    posts.splice(idIndex, 1);
+    console.log(posts);
+  } else {
+    res.sendStatus(404);
+  }
+  
 })
 
 app.listen(port, () => {
