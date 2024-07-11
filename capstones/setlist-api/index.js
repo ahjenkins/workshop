@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 })
 
+app.post("/search-artist", (req, res) => {
+    console.log(req.body);
+})
+
 // app.get("/setlist", (req, res) => {
 // })
 
