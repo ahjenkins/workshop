@@ -1,3 +1,4 @@
 #Project-wide
 .DS_Store
 node_modules/
+.env
