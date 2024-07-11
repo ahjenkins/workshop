@@ -113,6 +113,9 @@ app.patch("/posts/:id", (req, res) => {
 })
 
 //CHALLENGE 5: DELETE a specific post by providing the post id.
+app.delete("/posts/:id", (req, res) => {
+  console.log("test");
+})
 
 app.listen(port, () => {
   console.log(`API is running at http://localhost:${port}`);
