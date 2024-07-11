@@ -15,8 +15,7 @@ const apiKey = process.env.API_KEY;
 
 const headers = {
     'Accept': 'application/json',
-    'x-api-key': apiKey,
-    'Accept-Language': 'en'
+    'x-api-key': apiKey
 }
 
 // const setlist_API_URL = "https://api.setlist.fm/rest/1.0";
@@ -25,11 +24,11 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 })
 
-app.get("/artist", (req, res) => {
+app.get("/artist", async (req, res) => {
     console.log("test");
     // const result = axios.get(setlist_API_URL + "/search/artists?tate", headers);
-    // const result = axios.get("https://api.setlist.fm/rest/1.0/search/artists?artistName=Tate Mcrae&p=1&sort=sortName", headers);
-    // console.log(result.data);
+    const result = await axios.get("https://api.setlist.fm/rest/1.0/search/artists?artistName=Tate Mcrae&p=1&sort=sortName", {headers});
+    console.log(result.data);
 })
 
 app.post("/search-artist", (req, res) => {
