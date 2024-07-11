@@ -9,7 +9,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.get("/", (req, res) => {
-    res.send("hello world");
+    res.render("index.ejs");
 })
 
 app.listen(port, (req, res) => {
