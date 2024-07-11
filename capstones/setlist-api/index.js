@@ -21,7 +21,9 @@ app.get("/", (req, res) => {
 })
 
 app.post("/search-artist", (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
+    const artist = req.body.artist;
+    console.log(artist);
 })
 
 // app.get("/setlist", (req, res) => {
