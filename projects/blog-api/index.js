@@ -58,7 +58,7 @@ app.get("/posts/:id", (req, res) => {
   if (id > -1 && id < posts.length + 1) {
     res.json(posts[idIndex]);
   } else {
-    res.sendStatus(404)
+    res.sendStatus(404);
   }
 })
 
@@ -77,7 +77,21 @@ app.post("/posts", (req, res) => {
     author: req.body.author,
     date: date.toISOString()
   }
-  console.log(newPost);
+
+  // console.log(newPost);
+  posts.push(newPost);
+  // console.log(posts);
+
+  // console.log(posts[posts.length]);
+  // res.json(newPost);
+
+
+  try {
+    res.json(newPost);  
+  } catch {
+    res.sendStatus(404);
+  }
+  
 })
 
 //CHALLENGE 4: PATCH a post when you just want to update one parameter
