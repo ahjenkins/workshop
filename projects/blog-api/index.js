@@ -118,7 +118,7 @@ app.delete("/posts/:id", (req, res) => {
   const idIndex = posts.findIndex(post => post.id === id);
   if (idIndex > -1) {
     posts.splice(idIndex, 1);
-    res.json(posts)
+    res.json({ message: "Post deleted"});
   } else {
     res.sendStatus(404);
   }
