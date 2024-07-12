@@ -18,17 +18,30 @@ db.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+let countries = [];
+
 app.get("/", async (req, res) => {
   //Write your code here.
   const result = await db.query("SELECT country_code FROM visited_countries");
-  let countries = [];
   console.log(result.rows);
   result.rows.forEach((country) => {
     countries.push(country.country_code);
   });
   res.render("index.ejs", { countries: countries, total: countries.length })
-  db.end();
+  // db.end();
 });
+
+app.post("/add", async (req, res) => {
+  const addedCountry = req.body.country;
+  // const visitedCountry = addedCountry.toTitleCase();
+  // console.log(addedCountry);
+  const result = await db.query(`SELECT country_code FROM countries WHERE country_name=${addedCountry}`);
+  console.log(result.rows);
+
+  // countries.push(addedCountry);
+  // res.redirect("/");
+  db.end();
+})
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
