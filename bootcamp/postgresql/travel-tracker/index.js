@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 const db = new pg.Client({
-  username: "postgres",
+  user: "postgres",
   host: "localhost",
   database: "world",
   password: "postgres",
@@ -20,6 +20,14 @@ app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
   //Write your code here.
+  const result = await db.query("SELECT country_code FROM visited_countries");
+  let countries = [];
+  console.log(result.rows);
+  result.rows.forEach((country) => {
+    countries.push(country.country_code);
+  });
+  res.render("index.ejs", { countries: countries, total: countries.length })
+  db.end();
 });
 
 app.listen(port, () => {
