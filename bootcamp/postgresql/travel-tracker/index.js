@@ -34,6 +34,11 @@ app.get("/", async (req, res) => {
   db.end();
 });
 
+app.post("/add", async (req, res) => {
+  // console.log("country added");
+  const result = await db.query("");
+})
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
