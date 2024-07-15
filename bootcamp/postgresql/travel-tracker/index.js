@@ -20,10 +20,12 @@ app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
   //Write your code here.
+  
   const result = await db.query("SELECT * FROM visited_countries");
   console.log(result.rows);
+  let total = result.rows.length;
   db.end();
-  res.render("index.ejs", {countries: result});
+  res.render("index.ejs", {countries: result, total});
 });
 
 app.listen(port, () => {
