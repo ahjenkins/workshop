@@ -30,8 +30,8 @@ app.get("/", async (req, res) => {
   // console.log(countries);
 
   let total = countries.length;
-  db.end();
   res.render("index.ejs", {countries, total});
+  db.end();
 });
 
 app.listen(port, () => {
