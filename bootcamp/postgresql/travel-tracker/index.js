@@ -18,8 +18,7 @@ db.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/", async (req, res) => {
-  //Write your code here.
+async function checkVisited() {
   const result = await db.query("SELECT * FROM visited_countries");
   console.log(result.rows);
   
@@ -27,22 +26,48 @@ app.get("/", async (req, res) => {
   result.rows.forEach((country) => {
     countries.push(country.country_code);
   })
-  // console.log(countries);
+
+  return countries;
+}
+
+app.get("/", async (req, res) => {
+  //Write your code here.
+  const countries = await checkVisited();
   let total = countries.length;
   res.render("index.ejs", {countries, total});
   // db.end();
 });
 
 app.post("/add", async (req, res) => {
-  // console.log("country added");
   const addedCountry = req.body.country;
-  const result = await db.query(`SELECT * FROM countries WHERE country_name='${addedCountry}'`);
-  if (result.rows.length !== 0) {
+  try {
+    const result = await db.query(`SELECT * FROM countries WHERE country_name='${addedCountry}'`);
     const addedCountryCode = result.rows[0].country_code;
-  
-    const data = await db.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [addedCountryCode]);
-    res.redirect("/");
+    try {
+      if (result.rows.length !== 0) {
+        const data = await db.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [addedCountryCode]);
+        res.redirect("/");
+      }
+    } catch (err) {
+      console.log(err);
+      const countries = await checkVisited();
+      res.render("index.ejs", {
+        countries,
+        total: countries.length,
+        error: "Country has already been added, try again"
+      })
+    }
+  } catch (err) {
+    console.log(err);
+    const countries = await checkVisited();
+    res.render("index.ejs", {
+      countries,
+      total: countries.length,
+      error: "Country name does not exist, try again."
+    })
   }
+  
+    
 })
 
 app.listen(port, () => {
