@@ -28,8 +28,8 @@ app.get("/", async (req, res) => {
     countries.push(country.country_code);
   })
   // console.log(countries);
-  
-  let total = result.rows.length;
+
+  let total = countries.length;
   db.end();
   res.render("index.ejs", {countries, total});
 });
