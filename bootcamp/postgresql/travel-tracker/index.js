@@ -41,7 +41,7 @@ app.get("/", async (req, res) => {
 app.post("/add", async (req, res) => {
   const addedCountry = req.body.country;
   try {
-    const result = await db.query(`SELECT * FROM countries WHERE country_name='${addedCountry}'`);
+    const result = await db.query(`SELECT * FROM countries WHERE country_name LIKE '%' || '${addedCountry}' || '%'`);
     const addedCountryCode = result.rows[0].country_code;
     try {
       if (result.rows.length !== 0) {
