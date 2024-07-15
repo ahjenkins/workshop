@@ -37,10 +37,12 @@ app.post("/add", async (req, res) => {
   // console.log("country added");
   const addedCountry = req.body.country;
   const result = await db.query(`SELECT * FROM countries WHERE country_name='${addedCountry}'`);
-  const addedCountryCode = result.rows[0].country_code;
+  if (result.rows.length !== 0) {
+    const addedCountryCode = result.rows[0].country_code;
   
-  const data = await db.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [addedCountryCode]);
-  res.redirect("/");
+    const data = await db.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [addedCountryCode]);
+    res.redirect("/");
+  }
 })
 
 app.listen(port, () => {
