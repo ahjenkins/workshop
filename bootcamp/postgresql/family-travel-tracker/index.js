@@ -32,6 +32,7 @@ async function checkVisisted() {
   });
   return countries;
 }
+
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
   res.render("index.ejs", {
@@ -65,7 +66,27 @@ app.post("/add", async (req, res) => {
     console.log(err);
   }
 });
-app.post("/user", async (req, res) => {});
+app.post("/user", async (req, res) => {
+  const id = req.body.user;
+  console.log(id);
+
+  const result = await db.query(`SELECT country_code, color FROM users JOIN visited_countries ON users.id = visited_countries.user_id WHERE users.id=${id};`);
+  console.log("sql query result:", result.rows);
+  const color = result.rows[0].color;
+  console.log("color:", color);
+  let countries = [];
+  result.rows.forEach((country) => {
+    countries.push(country.country_code);
+  });
+  console.log("countries:", countries);
+
+  res.render("/", {
+    countries,
+    total: countries.length,
+    users: users,
+    color: color
+  });
+});
 
 app.post("/new", async (req, res) => {
   //Hint: The RETURNING keyword can return the data that was inserted.
