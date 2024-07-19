@@ -87,8 +87,26 @@ app.post("/user", async (req, res) => {
       currentUserId = selectedUser;
       console.log("current", currentUserId, "selected", selectedUser);
       
-      // const result = await db.query();
+      const result = await db.query("SELECT * FROM users JOIN visited_countries ON users.id = visited_countries.user_id WHERE users.id=($1)", [currentUserId]);
+      // console.log(result.rows);
       
+      let countries = [];
+      result.rows.forEach((country) => {
+        countries.push(country.country_code);
+      });
+      console.log(countries);
+      
+      try {
+        if (countries.length == 0) {
+          console.log("countries empty");
+        } else {
+          console.log("countries not empty");
+        }
+      } catch {
+
+      }
+
+
     } else {
       console.log("adding new user");
     }
