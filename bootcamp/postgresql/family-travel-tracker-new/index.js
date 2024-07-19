@@ -25,21 +25,36 @@ let users = [
 ];
 
 async function checkVisisted() {
-  const result = await db.query("SELECT country_code FROM visited_countries");
-  let countries = [];
-  result.rows.forEach((country) => {
-    countries.push(country.country_code);
-  });
-  return countries;
+  const result = await db.query("SELECT country_code, user_id FROM visited_countries");
+  
+  return result.rows;
+  
+  // let countries = [];
+  // result.rows.forEach((country) => {
+  //   countries.push(country.country_code);
+  // });
+  // return countries;
 }
+
+async function getCurrentUser() {
+  const result = await db.query("SELECT * FROM users");
+  // console.log(result.rows);
+  users = result.rows;
+  const user = users.find((user) => user.id === currentUserId);
+  return user;
+}
+
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
-  res.render("index.ejs", {
-    countries: countries,
-    total: countries.length,
-    users: users,
-    color: "teal",
-  });
+  // console.log(countries);
+  const currentUser = await getCurrentUser();
+  console.log(currentUser);
+  // res.render("index.ejs", {
+  //   countries: countries,
+  //   total: countries.length,
+  //   users: users,
+  //   color: "teal",
+  // });
 });
 app.post("/add", async (req, res) => {
   const input = req.body["country"];
