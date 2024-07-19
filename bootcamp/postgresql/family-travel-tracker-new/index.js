@@ -85,7 +85,7 @@ app.post("/user", async (req, res) => {
   try {
     if (selectedUser > 0) {
       currentUserId = selectedUser;
-      console.log("current", currentUserId, "selected", selectedUser);
+      // console.log("current", currentUserId, "selected", selectedUser);
       
       // get selectedUser's color
       const userInfo = await db.query("SELECT * FROM users WHERE id=($1)", [currentUserId]);
@@ -121,11 +121,11 @@ app.post("/user", async (req, res) => {
         console.error(err.message);
       }
     } else {
-      console.log("adding new user");
+      // console.log("adding new user");
       res.render("new.ejs")
     }
-  } catch {
-
+  } catch (err) {
+    console.error(err.message);
   }
 });
 
