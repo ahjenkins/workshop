@@ -33,6 +33,7 @@ async function checkVisisted() {
   return countries;
 }
 app.get("/", async (req, res) => {
+  console.log(req.body);
   const countries = await checkVisisted();
   res.render("index.ejs", {
     countries: countries,
@@ -66,12 +67,27 @@ app.post("/add", async (req, res) => {
   }
 });
 app.post("/user", async (req, res) => {
-  res.render("new.ejs");
+  if (req.body.user) {
+    console.log("success");
+  } else if (req.body.add === 'new') {
+    res.render("new.ejs");
+  }
 });
 
 app.post("/new", async (req, res) => {
   //Hint: The RETURNING keyword can return the data that was inserted.
   //https://www.postgresql.org/docs/current/dml-returning.html
+  const newUser = req.body.name;
+  const userColor = req.body.color;
+  // console.log(newUser, userColor);
+  
+  // add user to database
+  const addUser = await db.query("INSERT INTO users (name, color) VALUES ($1, $2) RETURNING id, name, color", [newUser, userColor]);
+
+  // check if new user was addedd
+  const users = await db.query("SELECT * FROM users");
+  console.log(users.rows);
+
 });
 
 app.listen(port, () => {
