@@ -103,7 +103,6 @@ app.post("/user", async (req, res) => {
       
       try {
         if (countries.length > 0) {
-          console.log("countries not empty");
           res.render("index.ejs", {
             countries,
             total: countries.length,
@@ -111,7 +110,6 @@ app.post("/user", async (req, res) => {
             color
           })
         } else {
-          console.log("countries empty");
           res.render("index.ejs", {
             countries,
             total: countries.length,
@@ -119,40 +117,16 @@ app.post("/user", async (req, res) => {
             color
           })
         }
-      } catch {
-
+      } catch (err) {
+        console.error(err.message);
       }
-
     } else {
       console.log("adding new user");
+      res.render("new.ejs")
     }
   } catch {
 
   }
-  
-  // if (req.body.user) {
-  //   // console.log("success");
-  //   const id = req.body.user;
-  //   console.log("id:", id);
-
-  //   // get visited countries of user
-  //   const result = await db.query("SELECT * FROM users JOIN visited_countries ON users.id = visited_countries.user_id WHERE users.id=($1)", [id]);
-  //   // console.log(result.rows);
-
-  //   let countries = [];
-  //   result.rows.forEach((country) => {
-  //     countries.push(country.country_code);
-  //   });
-  //   // console.log(countries);
-  //   res.render("index.ejs", {
-  //     countries,
-  //     total: countries.length,
-  //     users: users,
-  //     color: result.rows[0].color
-  //   });
-  // } else if (req.body.add === 'new') {
-  //   res.render("new.ejs");
-  // }
 });
 
 app.post("/new", async (req, res) => {
