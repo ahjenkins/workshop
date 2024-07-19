@@ -87,9 +87,13 @@ app.post("/user", async (req, res) => {
       currentUserId = selectedUser;
       console.log("current", currentUserId, "selected", selectedUser);
       
+      // get selectedUser's color
+      const userInfo = await db.query("SELECT * FROM users WHERE id=($1)", [currentUserId]);
+      const color = userInfo.rows[0].color;
+
+      // get selectedUser's countries
       const result = await db.query("SELECT * FROM users JOIN visited_countries ON users.id = visited_countries.user_id WHERE users.id=($1)", [currentUserId]);
       // console.log(result.rows);
-      const color = result.rows[0].color;
       
       let countries = [];
       result.rows.forEach((country) => {
@@ -108,6 +112,12 @@ app.post("/user", async (req, res) => {
           })
         } else {
           console.log("countries empty");
+          res.render("index.ejs", {
+            countries,
+            total: countries.length,
+            users,
+            color
+          })
         }
       } catch {
 
