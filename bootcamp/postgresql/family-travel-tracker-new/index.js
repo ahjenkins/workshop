@@ -79,7 +79,7 @@ app.post("/user", async (req, res) => {
     result.rows.forEach((country) => {
       countries.push(country.country_code);
     });
-    console.log(countries);
+    // console.log(countries);
     res.render("index.ejs", {
       countries,
       total: countries.length,
