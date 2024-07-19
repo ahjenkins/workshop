@@ -33,7 +33,6 @@ async function checkVisisted() {
   return countries;
 }
 app.get("/", async (req, res) => {
-  console.log(req.body);
   const countries = await checkVisisted();
   res.render("index.ejs", {
     countries: countries,
