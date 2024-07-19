@@ -79,15 +79,11 @@ app.post("/new", async (req, res) => {
   //https://www.postgresql.org/docs/current/dml-returning.html
   const newUser = req.body.name;
   const userColor = req.body.color;
-  // console.log(newUser, userColor);
   
   // add user to database
   const addUser = await db.query("INSERT INTO users (name, color) VALUES ($1, $2) RETURNING id, name, color", [newUser, userColor]);
-
-  // check if new user was addedd
-  const users = await db.query("SELECT * FROM users");
-  console.log(users.rows);
-
+  users.push(addUser.rows[0]);
+  res.redirect("/");
 });
 
 app.listen(port, () => {
