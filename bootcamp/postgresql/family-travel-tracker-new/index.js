@@ -25,15 +25,13 @@ let users = [
 ];
 
 async function checkVisisted() {
-  const result = await db.query("SELECT country_code, user_id FROM visited_countries");
-  
-  return result.rows;
-  
-  // let countries = [];
-  // result.rows.forEach((country) => {
-  //   countries.push(country.country_code);
-  // });
-  // return countries;
+  const result = await db.query("SELECT * FROM users JOIN visited_countries ON users.id = visited_countries.user_id WHERE users.id=($1)", [currentUserId]);  
+  let countries = [];
+  result.rows.forEach((country) => {
+    countries.push(country.country_code);
+  });
+
+  return countries;
 }
 
 async function getCurrentUser() {
@@ -46,9 +44,10 @@ async function getCurrentUser() {
 
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
-  // console.log(countries);
+  console.log(countries);
   const currentUser = await getCurrentUser();
   console.log(currentUser);
+
   // res.render("index.ejs", {
   //   countries: countries,
   //   total: countries.length,
